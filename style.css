@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(20,20,20);
+    background-color: #262421;
     color: rgb(200,200,200);
 }
 div#sidebar {
@@ -10,17 +10,37 @@ div#sidebar {
 
     border-right: 2px solid rgb(200,200,200);
 }
+h2#sidebar-title {
+    text-align: center;
+}
 form#add-item-form {
     border: 2px solid rgb(200,200,200);
+
+    display: flex;
+    flex-direction: column;
+}
+div.form-item {
+    margin: auto;
 }
 button#add-item {
-    width: 60%;
-    margin-left: 20%;
+    width: 50%;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
     background-color: rgb(207,121,8);
     border-radius: 5%;
     border-color: transparent;
 }
 div#item-list {
     text-align: center;
-    padding-left: 25%;
+    margin-left: 30%;
+    margin-right: 3%;
+}
+div.item {
+    background-color: #4d4d4d;
+}
+button.complete {
+    background-color: rgb(207,121,8);
+    border-color: transparent;
+    margin-bottom: 5px;
 }
