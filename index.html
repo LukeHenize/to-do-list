@@ -16,9 +16,9 @@
             <form id="add-item-form">
                 <div class="form-item">
                     <label for="add-title">Item Name</label><br>
-                    <input id="add-title" type="text" placeholder="Exercise"><br>
+                    <input id="add-title" type="text" placeholder="Exercise" autocomplete="off"><br>
                 </div>
-                <button id="add-item" onclick="addItem()">Add Item</button>   
+                <button type="button" id="add-item" onclick="addItem()">Add Item</button>   
             </form>
         </div>
         
@@ -27,7 +27,7 @@
         <h1 id="title">To-Do List</h1>
         <div class="item">
             <h2 id="default-item" class="item-name">You have nothing on your to-do list!</h2>
-            <button class="complete" onclick="removeItem()">Complete Task</button>
+            <button type="button" class="complete" onclick="removeItem()">Complete Task</button>
         </div>
     </div>
     <script src="script.js"></script>
