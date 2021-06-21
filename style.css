@@ -1,6 +1,7 @@
 body {
     background-color: #262421;
     color: rgb(200,200,200);
+    font-family: 'Poppins', sans-serif;
 }
 div#sidebar {
     position: fixed;
