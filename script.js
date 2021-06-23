@@ -70,3 +70,24 @@ function updateCounter(num) {
         }
     }
 }
+function toggleMenu() {
+    let sidebar = document.getElementById("sidebar");
+    if(sidebar.classList.contains("visible")) {
+        sidebar.classList.remove("visible");
+        sidebar.classList.add("hidden");   
+    }else {
+        sidebar.classList.remove("hidden");
+        sidebar.classList.add("visible");
+    }
+    
+}
+function init() {
+    const vw = document.documentElement.clientWidth;
+    let sidebar = document.getElementById("sidebar");
+    if(vw <= 625) {
+        sidebar.classList.add("hidden");
+    }else { //create popup
+        sidebar.classList.add("visible");
+    }
+}
+window.onload = init;

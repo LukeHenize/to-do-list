@@ -3,6 +3,21 @@ body {
     color: rgb(200,200,200);
     font-family: 'Poppins', sans-serif;
 }
+img#mobile-toggle {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(207,121,8);
+    border-radius: 10%;
+    padding: 5px;
+
+    display: none;
+}
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+}
 div#sidebar {
     position: fixed;
     height: 100%;
@@ -16,12 +31,16 @@ h2#sidebar-title {
 }
 form#add-item-form {
     border: 2px solid rgb(200,200,200);
+    min-width: 150px;
 
     display: flex;
     flex-direction: column;
 }
 div.form-item {
     margin: auto;
+}
+input, button {
+    max-width: 130px;
 }
 button#add-item {
     width: 50%;
@@ -44,4 +63,20 @@ button.complete {
     background-color: rgb(207,121,8);
     border-color: transparent;
     margin-bottom: 5px;
+}
+@media (max-width: 625px) {
+    div#sidebar {
+        border: none;
+        left: 50%;
+        top: 50%;
+        margin-left: -75px;
+        margin-top: -85px;
+        height: auto;
+    }
+    img#mobile-toggle {
+        display: block;
+    }
+    div#item-list {
+        margin-left: 3%;
+    }
 }
