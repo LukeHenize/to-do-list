@@ -11,16 +11,20 @@
 </head>
 <body>
     <img id="mobile-toggle" src="images/plus-icon-black.png" onclick="toggleMenu()">
-    
+    <div id="translucent" onclick="toggleMenu()"></div>
     <div id="sidebar">
         <div id="add-item-box">
             <h2 id="sidebar-title"><u>Add To-Do Item</u></h2>
             <form id="add-item-form" onkeypress="return event.keyCode != 13">
                 <div class="form-item">
-                    <label for="add-title">Item Name</label><br>
+                    <label for="add-title">Task Name</label><br>
                     <input id="add-title" type="text" placeholder="Exercise" autocomplete="off"><br>
                 </div>
-                <button type="button" id="add-item" onclick="addItem()">Add Item</button>   
+                <div class="form-item">
+                    <label for="add-desc">Task Description</label><br>
+                    <textarea id="add-desc"  autocomplete="off"></textarea><br>
+                </div class="form-item">
+                <button type="button" id="add-item" onclick="addItem(), toggleMenu(), createTimer()">Add Item</button>   
             </form>
         </div>  
     </div>
