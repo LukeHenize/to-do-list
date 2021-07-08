@@ -1,3 +1,6 @@
+let tasks = []; //holds order of tasks for easier deletion
+let timers = []; //holds timer data for each task
+
 function addItem() {
     if(!isFormComplete()) {
         alert(`Please fill out the "Task Name" field!`);
@@ -9,6 +12,9 @@ function addItem() {
         //create to-do item title and add appropriate text
         const itemTitle = document.createElement("h2");
         let input = document.getElementById("add-title").value;
+
+        
+        //continue DOM stuff
         let text = document.createTextNode(input);
         itemTitle.appendChild(text);
 
@@ -24,8 +30,7 @@ function addItem() {
 
         //create timer to track task time
         const timer = document.createElement("h3");
-        const date = new Date();
-        text = document.createTextNode("Started 0 minutes ago");
+        text = document.createTextNode("Posted just now");
         timer.appendChild(text);
 
         //create complete button and add onclick functionality and text
@@ -48,7 +53,8 @@ function addItem() {
         //add completed div to main list
         const list = document.getElementById("item-list");
         list.appendChild(item);
-
+        tasks.push(item);
+        console.log(tasks);
         //reset form values
         document.getElementById("add-title").value = '';
         info.value = '';
@@ -59,7 +65,11 @@ function addItem() {
 
 function removeItem(eventObj) {
     let item = eventObj.target.parentNode;
-    item.remove();
+    //TO-DO 
+    //1. find item's index in tasks array
+    //2. remove task from task and timer arrays
+
+    item.remove(); //remove from DOM
     updateCounter(-1);
 }
 
@@ -109,14 +119,25 @@ function toggleMenu() {
         }  
     }
 }
-let timers = [];
 function createTimer() {
-    timers.push(0);
+    timers.push({ms: 0, mins: 0});
 }
-function updateTimers(arr) {
-    console.log(arr);
-    arr.forEach(timer => {
-       timer = timer + 5000;
+function updateTimers() {
+    timers = timers.map((timer, index) => {
+        timer.ms += 5000;
+        if(timer.ms == 60000) {
+            timer.ms = 0;
+            timer.mins++;
+            //edit innerHTML
+            let taskList = Array.from(document.querySelectorAll('.item')); //get all divs
+            let taskTitle = taskList[index + 1].childNodes[1]; //get h3 "timer"
+            if(timer.mins == 1) {
+                taskTitle.innerHTML = "Posted " + timers[index].mins + " minute ago";
+            }else {
+                taskTitle.innerHTML = "Posted " + timers[index].mins + " minutes ago";
+            }
+        }
+        return timer; //return is needed for map
     });
 }
 function init() {
@@ -129,4 +150,4 @@ function init() {
     }
 }
 window.onload = init;
-setInterval(updateTimers, 5000, timers);
+setInterval(updateTimers, 5000);
