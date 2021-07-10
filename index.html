@@ -13,9 +13,9 @@
     <img id="mobile-toggle" src="images/plus-icon-black.png" onclick="toggleMenu()">
     <div id="translucent" onclick="toggleMenu()"></div>
     <div id="sidebar">
-        <div id="add-item-box">
-            <h2 id="sidebar-title"><u>Add To-Do Item</u></h2>
-            <form id="add-item-form" onkeypress="return event.keyCode != 13">
+        <div class="sidebar-box">
+            <h2 class="sidebar-title"><u>Add To-Do Item</u></h2>
+            <form id="add-item-form" class="section" onkeypress="return event.keyCode != 13">
                 <div class="form-item">
                     <label for="add-title">Task Name</label><br>
                     <input id="add-title" type="text" placeholder="Exercise" autocomplete="off"><br>
@@ -26,7 +26,13 @@
                 </div class="form-item">
                 <button type="button" id="add-item" onclick="addItem(), toggleMenu(), createTimer()">Add Item</button>   
             </form>
-        </div>  
+        </div>
+        <div id="completed-box" class="sidebar-box">
+            <h2 class="sidebar-title">Completed Tasks</h2>
+            <div id="completed-list" class="section">
+                
+            </div>
+        </div>
     </div>
     <div id="item-list">
         <h1 id="title">To-Do List</h1>

@@ -31,19 +31,20 @@ div#translucent {
 .visible {
     display: block;
 }
-div#sidebar {
+div.sidebar-box {
     position: fixed;
     height: 100%;
     width: 25%;
-    padding: 10px;
-
+    padding: 10px; 
     border-right: 2px solid rgb(200,200,200);
 }
-h2#sidebar-title {
+.section {
+    border: 2px solid rgb(200,200,200);
+}
+h2.sidebar-title {
     text-align: center;
 }
 form#add-item-form {
-    border: 2px solid rgb(200,200,200);
     min-width: 150px;
 
     display: flex;
@@ -69,6 +70,13 @@ button#add-item {
     border-radius: 5%;
     border-color: transparent;
 }
+div#completed-box {
+    top: 400px;
+}
+div#completed-list {
+    font-size: 0.75em;
+    padding: 10px;
+}
 div#item-list {
     text-align: center;
     margin-left: 30%;
@@ -76,6 +84,8 @@ div#item-list {
 }
 div.item {
     background-color: #4d4d4d;
+    padding: 5px;
+    margin: 5px 0px 5px 0px;
 }
 button.complete {
     background-color: rgb(207,121,8);
@@ -84,6 +94,7 @@ button.complete {
 }
 @media (max-width: 625px) {
     div#sidebar {
+        position: fixed;
         border: none;
         left: 50%;
         top: 35%;
@@ -91,8 +102,14 @@ button.complete {
         margin-top: -85px;
         height: auto;
     }
+    div.sidebar-box {
+        border: none;
+    }
     img#mobile-toggle {
         display: block;
+    }
+    div#completed-box {
+        top: 65%;
     }
     div#item-list {
         margin-left: 3%;

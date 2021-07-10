@@ -1,5 +1,6 @@
 let tasks = []; //holds order of tasks for easier deletion
 let timers = []; //holds timer data for each task
+let completedTasks = []; //holds tasks that the user has marked as complete
 
 function addItem() {
     if(!isFormComplete()) {
@@ -54,7 +55,6 @@ function addItem() {
         const list = document.getElementById("item-list");
         list.appendChild(item);
         tasks.push(item);
-        console.log(tasks);
         //reset form values
         document.getElementById("add-title").value = '';
         info.value = '';
@@ -64,12 +64,33 @@ function addItem() {
 }
 
 function removeItem(eventObj) {
+    let indexMatch = -1;
     let item = eventObj.target.parentNode;
-    //TO-DO 
-    //1. find item's index in tasks array
-    //2. remove task from task and timer arrays
+    let title = Array.from(item.childNodes)[0];
+    
+    for(let i=0; i < tasks.length; i++) {
+        let childNodes = Array.from(tasks[i].childNodes);
+        if(childNodes[0] == title) {
+            indexMatch = i;
+        }
+    }
+    //add task to completed list
+    let div = document.createElement("div");
+    div.classList.add("item");
+    let h2 = document.createElement("h2");
+    let text = document.createTextNode(title.innerHTML);
+    console.log(title);
+    h2.appendChild(text);
+    div.appendChild(h2);
+    
+    let completedList = document.querySelector('#completed-list');
+    completedList.appendChild(div);
+    console.log(item);
 
-    item.remove(); //remove from DOM
+    //remove from arrays and DOM
+    tasks.splice(indexMatch, 1);
+    timers.splice(indexMatch, 1);
+    item.remove(); 
     updateCounter(-1);
 }
 
