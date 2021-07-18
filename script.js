@@ -147,7 +147,7 @@ function createTimer() {
 }
 function updateTimers() {
     timers = timers.map((timer, index) => {
-        timer.ms += 60000;
+        timer.ms += 5000;
         if(timer.ms == 60000) {
             timer.ms = 0;
             timer.mins++;
