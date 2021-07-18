@@ -76,7 +76,9 @@ function removeItem(eventObj) {
     }
     //add task to completed list
     let div = document.createElement("div");
-    div.classList.add("item");
+    div.style.backgroundColor = "#4d4d4d";
+    div.style.padding = "5px";
+    div.style.margin = "5px 0px 5px 0px";
     let h2 = document.createElement("h2");
     let text = document.createTextNode(title.innerHTML);
     console.log(title);
@@ -145,7 +147,7 @@ function createTimer() {
 }
 function updateTimers() {
     timers = timers.map((timer, index) => {
-        timer.ms += 5000;
+        timer.ms += 60000;
         if(timer.ms == 60000) {
             timer.ms = 0;
             timer.mins++;
