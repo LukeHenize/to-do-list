@@ -15,7 +15,7 @@
     <div id="sidebar">
         <div class="sidebar-box">
             <h2 class="sidebar-title"><u>Add To-Do Item</u></h2>
-            <form id="add-item-form" class="section" onkeypress="return event.keyCode != 13">
+            <form id="add-item-form" class="section" onkeypress="() => {return event.keyCode != 13}">
                 <div class="form-item">
                     <label for="add-title">Task Name</label><br>
                     <input id="add-title" type="text" placeholder="Exercise" autocomplete="off"><br>
